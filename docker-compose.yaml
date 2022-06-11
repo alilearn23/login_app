@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web:
+    build: ./frontend
+    ports:
+      - "8000:80"
+    stdin_open: true
+    tty: true
+    env_file:
+      - ./env/mysql.env
+
+  db:
+    image: mysql:latest
+    container_name: webappdb
+    restart: always
+    volumes:
+      - /home/fikradev/dbvolume:/home/app
+    env_file:
+      - ./env/mysql.env
+
+  monitor:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+
+volumes:
+  db:
+
+

@@ -1,0 +1,1 @@
+CREATE TABLE `issuetrackdb`.`tbl_registration` (`id` INT NOT NULL AUTO_INCREMENT , `db_email` VARCHAR(255) NOT NULL , `db_password` VARCHAR(255) NOT NULL , `db_passwordconf` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`), UNIQUE (`db_email`)) ENGINE = InnoDB; 
