@@ -1,1 +1,1 @@
-env\mysql.env
+./env/mysql.env
