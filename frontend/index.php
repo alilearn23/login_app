@@ -42,15 +42,15 @@ if (isset($_POST['submit'])) {
             $errors['pwd22'] = 'Passwords Do Not Match!!';
         } else {
 
-            $sql = "INSERT INTO tbl_registration(db_email,db_password, db_passwordconf) VALUES (?,?,?)";
+            $sql = "INSERT INTO tbl_registration(db_email,db_password) VALUES (?,?)";
 
             if ($stmt = mysqli_prepare($conn, $sql)) {
 
-                mysqli_stmt_bind_param($stmt, "sss", $client_email, $pwd1, $pwd2);
+                mysqli_stmt_bind_param($stmt, "ss", $client_email, $pwd1);
 
                 $client_email = $_REQUEST['client_email'];
                 $pwd1 = $_REQUEST['pwd1'];
-                $pwd2 = $_REQUEST['pwd2'];
+                // $pwd2 = $_REQUEST['pwd2'];
 
                 if (mysqli_stmt_execute($stmt)) {
                     header('Location: success.php');
